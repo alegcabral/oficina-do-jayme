@@ -160,7 +160,13 @@ export const company = {
   images: {
     logo: "/images/logo-oficial.webp", // LOGO OFICIAL — não redesenhar
     heroVideo: "", // TODO: opcional, /video/hero.mp4 (ver IMAGENS.md)
-    heroBackground: "/images/painting-real.webp", // foto real do processo de pintura
+    // Artes originais da marca (geradas para o site — não são fotos):
+    heroBackground: "/images/hero-bg.webp",
+    ctaBackground: "/images/cta-bg.webp",
+    artMechanic: "/images/svc-mecanica.webp",
+    artBodywork: "/images/svc-funilaria.webp",
+    artPaint: "/images/svc-pintura.webp",
+    // Fotos reais fornecidas pelo cliente:
     facade: "/images/facade-real.webp", // fachada real (Street View recortado)
     painting: "/images/painting-real.webp",
     sprayGun: "/images/spray-gun-real.webp",

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Wrench, CarFront, Paintbrush, Sparkles, HelpCircle, MessageCircle } from "lucide-react";
 import { company } from "@/config/company";
 import { buildWhatsAppUrl, cn } from "@/lib/utils";
+import Reveal3D from "@/components/motion/Reveal3D";
 
 /**
  * "O que aconteceu com o seu veículo?" — orienta o primeiro contato.
@@ -85,7 +86,7 @@ export default function ServiceSelector() {
           <h2 className="section-title">O que aconteceu com o seu veículo?</h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
+        <Reveal3D><div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
           <div
             role="tablist"
             aria-label="Selecione a situação do seu veículo"
@@ -160,7 +161,7 @@ export default function ServiceSelector() {
               </p>
             </div>
           </div>
-        </div>
+        </div></Reveal3D>
       </div>
     </section>
   );

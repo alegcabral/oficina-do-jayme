@@ -47,8 +47,8 @@ export default function BodyworkSection() {
             className="relative aspect-[16/10] overflow-hidden rounded-sm border border-gold/25"
           >
             <Image
-              src={company.images.painting}
-              alt="Profissional realizando pintura automotiva na Oficina do Jayme"
+              src={company.images.artPaint}
+              alt="Composição gráfica dourada representando o processo de pintura"
               fill
               loading="lazy"
               className="object-cover"

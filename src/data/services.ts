@@ -22,8 +22,8 @@ export const services: Service[] = [
       "Avaliação e reparos mecânicos realizados de acordo com a necessidade identificada no veículo.",
     cta: "Solicitar avaliação mecânica",
     whatsappKey: "mechanic",
-    image: company.images.tools,
-    imageAlt: "Ferramentas organizadas na Oficina do Jayme",
+    image: company.images.artMechanic,
+    imageAlt: "Composição gráfica com linhas técnicas representando diagnóstico mecânico",
   },
   {
     id: "funilaria",
@@ -33,8 +33,8 @@ export const services: Service[] = [
       "Recuperação de danos na lataria com atenção ao alinhamento das peças e à preparação para o acabamento.",
     cta: "Solicitar avaliação de funilaria",
     whatsappKey: "bodywork",
-    image: company.images.sprayGun,
-    imageAlt: "Preparação de veículo para pintura na Oficina do Jayme",
+    image: company.images.artBodywork,
+    imageAlt: "Composição gráfica com reflexos metálicos representando funilaria",
   },
   {
     id: "pintura",
@@ -45,7 +45,7 @@ export const services: Service[] = [
       "Preparação e pintura automotiva com atenção à superfície, à tonalidade e ao acabamento final.",
     cta: "Solicitar avaliação de pintura",
     whatsappKey: "paint",
-    image: company.images.painting,
-    imageAlt: "Profissional realizando pintura automotiva na Oficina do Jayme",
+    image: company.images.artPaint,
+    imageAlt: "Composição gráfica com névoa dourada representando pintura automotiva",
   },
 ];

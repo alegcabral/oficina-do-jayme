@@ -59,15 +59,15 @@ export const galleryItems: GalleryItem[] = [
   {
     id: "funilaria-01",
     category: "Funilaria",
-    title: "Adicionar foto de serviço realizado",
-    image: "/images/placeholder-service.svg",
+    title: "Imagem ilustrativa — substituir por foto real de funilaria",
+    image: "/images/illus-funilaria.webp",
     placeholder: true,
   },
   {
     id: "mecanica-01",
     category: "Mecânica",
-    title: "Adicionar foto de serviço realizado",
-    image: "/images/placeholder-service.svg",
+    title: "Imagem ilustrativa — substituir por foto real de mecânica",
+    image: "/images/illus-mecanica.webp",
     placeholder: true,
   },
 ];

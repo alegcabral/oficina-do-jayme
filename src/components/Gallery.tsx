@@ -84,7 +84,7 @@ export default function Gallery() {
         </div>
 
         {/* Layout editorial: itens "wide" ocupam 2 colunas */}
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4" style={{ perspective: 1200 }}>
           <AnimatePresence mode="popLayout">
             {filtered.map((item, i) => (
               <motion.button
@@ -92,8 +92,8 @@ export default function Gallery() {
                 layout
                 type="button"
                 onClick={() => setActive(i)}
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 28, rotateX: 9 }}
+                animate={{ opacity: 1, y: 0, rotateX: 0 }}
                 exit={{ opacity: 0, scale: 0.96 }}
                 transition={{ duration: 0.35 }}
                 className={cn(
@@ -112,7 +112,7 @@ export default function Gallery() {
                 />
                 {item.placeholder && (
                   <span className="absolute bottom-2 left-2 rounded-sm bg-ink/80 px-2 py-1 text-[0.65rem] uppercase tracking-wide text-gold">
-                    Placeholder
+                    Ilustrativa
                   </span>
                 )}
                 <div className="absolute inset-0 flex items-end bg-gradient-to-t from-ink/80 via-transparent to-transparent p-3 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">

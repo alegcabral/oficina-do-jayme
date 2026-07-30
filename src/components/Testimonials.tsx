@@ -84,6 +84,7 @@ export default function Testimonials() {
         >
           <div
             ref={trackRef}
+            style={{ perspective: 1200 }}
             className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 [scrollbar-width:none] sm:mx-0 sm:px-0 [&::-webkit-scrollbar]:hidden"
             role="group"
             aria-label="Depoimentos de clientes"

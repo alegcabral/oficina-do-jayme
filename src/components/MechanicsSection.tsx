@@ -30,8 +30,8 @@ export default function MechanicsSection() {
           className="relative order-2 aspect-[4/3] overflow-hidden rounded-sm border border-white/10 lg:order-1 lg:col-span-6"
         >
           <Image
-            src={company.images.tools}
-            alt="Painel de ferramentas organizado na Oficina do Jayme"
+            src={company.images.artMechanic}
+            alt="Composição gráfica com círculos e linhas técnicas de diagnóstico"
             fill
             loading="lazy"
             className="object-cover"

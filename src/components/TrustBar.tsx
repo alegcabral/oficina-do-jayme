@@ -47,14 +47,14 @@ export default function TrustBar() {
       </div>
 
       {/* Quatro pilares */}
-      <div className="container-oj grid grid-cols-1 gap-x-8 gap-y-9 py-14 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="container-oj grid grid-cols-1 gap-x-8 gap-y-9 py-14 sm:grid-cols-2 lg:grid-cols-4" style={{ perspective: 1000 }}>
         {company.pillars.map((pillar, i) => {
           const Icon = icons[i % icons.length];
           return (
             <motion.div
               key={pillar.title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 26, rotateX: 10 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.09 }}
               className="group flex items-start gap-4"

@@ -1,18 +1,39 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { MessageCircle, MapPin, Star, Clock, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { company } from "@/config/company";
 import { buildWhatsAppUrl } from "@/lib/utils";
 
 /**
- * Hero cinematográfico em camadas: foto real + overlays + textura + tipografia.
- * O título é revelado por linhas com máscara (overflow-hidden + translateY).
- * Para usar vídeo no lugar da foto, ver instruções em IMAGENS.md.
+ * Hero cinematográfico com paralaxe 3D dirigida pela rolagem:
+ * cada camada (arte de fundo, grade técnica, conteúdo) se move em uma
+ * velocidade diferente, criando profundidade real ao rolar.
+ * Com prefers-reduced-motion, as camadas ficam estáticas.
  */
 export default function Hero() {
   const reduceMotion = useReducedMotion();
+  const ref = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  // Camadas em velocidades diferentes (profundidade)
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.12]);
+  const gridY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "58%"]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const contentRotateX = useTransform(scrollYProgress, [0, 1], [0, 8]);
 
   const lineReveal = (delay: number) => ({
     initial: reduceMotion ? { opacity: 0 } : { y: "110%" },
@@ -23,14 +44,14 @@ export default function Hero() {
   return (
     <section
       id="inicio"
+      ref={ref}
       className="relative flex min-h-[100svh] items-center overflow-hidden bg-ink"
+      style={{ perspective: 1200 }}
     >
-      {/* Camada 1: fotografia real com zoom muito suave */}
+      {/* Camada 1 (fundo, mais lenta): arte cinematográfica da marca */}
       <motion.div
         className="absolute inset-0"
-        initial={reduceMotion ? {} : { scale: 1.08 }}
-        animate={reduceMotion ? {} : { scale: 1 }}
-        transition={{ duration: 2.2, ease: "easeOut" }}
+        style={reduceMotion ? {} : { y: bgY, scale: bgScale }}
       >
         <Image
           src={company.images.heroBackground}
@@ -38,23 +59,24 @@ export default function Hero() {
           role="presentation"
           fill
           priority
-          className="object-cover opacity-45"
+          className="object-cover"
           sizes="100vw"
         />
       </motion.div>
 
-      {/* Camada 2: overlays de leitura e profundidade */}
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/40" />
-      <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/20 to-ink/60" />
+      {/* Overlays de leitura */}
+      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/30" />
+      <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/10 to-ink/50" />
 
-      {/* Camada 3: linhas técnicas discretas */}
-      <div
+      {/* Camada 2 (meio): grade técnica em velocidade própria */}
+      <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
+        className="pointer-events-none absolute -inset-y-1/4 inset-x-0 opacity-[0.07]"
         style={{
           backgroundImage:
             "linear-gradient(rgba(244,244,242,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(244,244,242,0.6) 1px, transparent 1px)",
           backgroundSize: "120px 120px",
+          ...(reduceMotion ? {} : { y: gridY }),
         }}
       />
 
@@ -68,7 +90,20 @@ export default function Hero() {
         style={{ transformOrigin: "left" }}
       />
 
-      <div className="container-oj relative z-10 pb-24 pt-32">
+      {/* Camada 3 (frente): conteúdo, mais rápida e inclinando ao sair */}
+      <motion.div
+        className="container-oj relative z-10 pb-24 pt-32"
+        style={
+          reduceMotion
+            ? {}
+            : {
+                y: contentY,
+                opacity: contentOpacity,
+                rotateX: contentRotateX,
+                transformStyle: "preserve-3d",
+              }
+        }
+      >
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -142,9 +177,8 @@ export default function Hero() {
             {company.rating.count} avaliações
           </span>
         </motion.div>
-      </div>
+      </motion.div>
 
-      {/* Indicação de rolagem */}
       <motion.a
         href="#diferenciais"
         aria-label="Rolar para a próxima seção"

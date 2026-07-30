@@ -10,14 +10,32 @@
   arquivos mantendo os nomes, ou ajuste `images.logo` em
   `src/config/company.ts`.
 
+## Artes originais da marca (geradas para o site)
+
+Estas imagens NÃO são fotografias — são composições gráficas originais
+(metal escuro, luz dourada, linhas técnicas) criadas para dar acabamento
+cinematográfico sem fingir trabalhos reais:
+
+| Arquivo | Usado em |
+|---|---|
+| `hero-bg.webp` | Fundo do hero (paralaxe 3D) |
+| `cta-bg.webp` | Fundo do CTA final |
+| `svc-mecanica.webp` | Card de Mecânica e seção "Diagnóstico antes da execução" |
+| `svc-funilaria.webp` | Card de Funilaria |
+| `svc-pintura.webp` | Card de Pintura e seção "Recuperar não é apenas esconder o dano" |
+| `illus-funilaria.webp` / `illus-mecanica.webp` | Galeria, com selo "Ilustrativa" — substituir por fotos reais |
+
+Quando houver fotos profissionais reais da oficina, basta trocar os caminhos
+em `src/config/company.ts` (objeto `images`) e em `src/data/services.ts`.
+
 ## Fotos reais em uso
 
 | Arquivo | Usado em | Observação |
 |---|---|---|
 | `public/images/facade-real.webp` | Sobre, Localização, Galeria, Open Graph | Recorte do Street View fornecido, sem a interface do Google. A placa na foto mostra um telefone antigo — em tamanho de tela ele não é legível, mas recomenda-se substituir por uma foto atual da fachada assim que possível. |
-| `public/images/painting-real.webp` | Hero (fundo), seção Funilaria e Pintura, Galeria | Foto real do processo de pintura. Baixa resolução (recortada de colagem); substituir pela original em alta. |
-| `public/images/spray-gun-real.webp` | Funilaria e Pintura (detalhe), CTA final, Galeria | Idem. |
-| `public/images/tools-real.webp` | Seção Mecânica, Galeria | Idem. |
+| `public/images/painting-real.webp` | Galeria | Foto real do processo de pintura, exibida apenas em tamanho pequeno por ser de baixa resolução. |
+| `public/images/spray-gun-real.webp` | Funilaria e Pintura (detalhe pequeno), Galeria | Idem. |
+| `public/images/tools-real.webp` | Galeria | Idem. |
 
 As artes antigas com o carro amarelo e a placa com telefone 2864-0688 **não**
 foram usadas no site (apenas a logo oficial foi mantida, conforme orientação).

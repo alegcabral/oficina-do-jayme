@@ -6,6 +6,7 @@ import { MessageCircle, ArrowUpRight } from "lucide-react";
 import { company } from "@/config/company";
 import { services } from "@/data/services";
 import { buildWhatsAppUrl, cn } from "@/lib/utils";
+import TiltCard from "@/components/motion/TiltCard";
 
 /**
  * Três serviços confirmados em cards editoriais assimétricos.
@@ -39,7 +40,7 @@ export default function Services() {
           acabamento.
         </motion.p>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12" style={{ perspective: 1400 }}>
           {services.map((service, i) => {
             // Layout assimétrico: pintura ocupa mais espaço
             const span =
@@ -47,17 +48,19 @@ export default function Services() {
                 ? "lg:col-span-12"
                 : "lg:col-span-6";
             return (
-              <motion.article
+              <motion.div
                 key={service.id}
-                initial={{ opacity: 0, y: 22 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 40, rotateX: 8 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.55, delay: i * 0.1 }}
-                className={cn(
-                  "group relative overflow-hidden rounded-sm border border-white/10 bg-graphite transition-colors hover:border-gold/50",
-                  span
-                )}
+                transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                style={{ transformStyle: "preserve-3d" }}
+                className={span}
               >
+                <TiltCard
+                  maxTilt={4}
+                  className="group relative h-full overflow-hidden rounded-sm border border-white/10 bg-graphite transition-colors hover:border-gold/50"
+                >
                 <div
                   className={cn(
                     "grid grid-cols-1",
@@ -105,7 +108,8 @@ export default function Services() {
                     </a>
                   </div>
                 </div>
-              </motion.article>
+                </TiltCard>
+              </motion.div>
             );
           })}
         </div>

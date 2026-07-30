@@ -13,12 +13,12 @@ export default function FinalCTA() {
     <section className="relative overflow-hidden border-y border-gold/20 bg-ink py-28">
       <div className="absolute inset-0">
         <Image
-          src={company.images.sprayGun}
+          src={company.images.ctaBackground}
           alt=""
           role="presentation"
           fill
           loading="lazy"
-          className="object-cover opacity-25"
+          className="object-cover opacity-60"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/80 to-ink" />
