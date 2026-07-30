@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Barlow Condensed", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+html,
+body {
+  background-color: #0a0a0b;
+  color: #f4f4f2;
+}
+
+body {
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+}
+
+/* Foco visível e consistente para navegação por teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #b9924a;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background-color: #b9924a;
+  color: #0a0a0b;
+}
+
+/* Scrollbar discreta (não afeta funcionalidade nem acessibilidade) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0b;
+}
+::-webkit-scrollbar-thumb {
+  background: #232428;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4a4d55;
+}
+
+.container-oj {
+  @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+}
+
+.eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.25em] text-gold;
+}
+
+.section-title {
+  @apply font-display text-3xl leading-[1.05] text-paper sm:text-4xl lg:text-5xl;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-sm bg-gold px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-ink transition-colors duration-200 hover:bg-gold-light active:bg-gold-dark;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-sm border border-mist/40 bg-transparent px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-paper transition-colors duration-200 hover:border-gold hover:text-gold;
+}
