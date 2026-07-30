@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import ManifestoScene from "@/components/ManifestoScene";
 import TrustBar from "@/components/TrustBar";
 import Services from "@/components/Services";
 import ServiceSelector from "@/components/ServiceSelector";
@@ -22,6 +23,7 @@ export default function Home() {
       <Header />
       <main id="conteudo" className="pb-16 lg:pb-0">
         <Hero />
+        <ManifestoScene />
         <TrustBar />
         <Services />
         <ServiceSelector />

@@ -29,15 +29,6 @@ const config: Config = {
       boxShadow: {
         gold: "0 0 0 1px rgba(185,146,74,0.35)",
       },
-      keyframes: {
-        marquee: {
-          "0%": { transform: "translateX(0%)" },
-          "100%": { transform: "translateX(-50%)" },
-        },
-      },
-      animation: {
-        marquee: "marquee 48s linear infinite",
-      },
     },
   },
   plugins: [],

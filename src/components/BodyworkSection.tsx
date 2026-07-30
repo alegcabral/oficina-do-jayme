@@ -66,8 +66,8 @@ export default function BodyworkSection() {
           >
             <div className="relative aspect-[4/3]">
               <Image
-                src={company.images.sprayGun}
-                alt="Pistola de pintura utilizada no processo"
+                src={company.images.artBodywork}
+                alt="Composição gráfica com reflexos metálicos"
                 fill
                 loading="lazy"
                 className="object-cover"

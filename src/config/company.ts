@@ -169,11 +169,8 @@ export const company = {
     artMechanic: "/images/svc-mecanica.webp",
     artBodywork: "/images/svc-funilaria.webp",
     artPaint: "/images/svc-pintura.webp",
-    // Fotos reais fornecidas pelo cliente:
+    // Foto real fornecida pelo cliente:
     facade: "/images/facade-real.webp", // fachada real (Street View recortado)
-    painting: "/images/painting-real.webp",
-    sprayGun: "/images/spray-gun-real.webp",
-    tools: "/images/tools-real.webp",
   },
 };
 

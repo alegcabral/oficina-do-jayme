@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { MessageCircle, Navigation, Phone, MapPin, Clock } from "lucide-react";
 import { company } from "@/config/company";
@@ -9,9 +10,18 @@ import Logo from "@/components/Logo";
 
 /** CTA final cinematográfico sobre fotografia real com iluminação dourada. */
 export default function FinalCTA() {
+  const ref = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.18, 1]);
+  const glow = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+
   return (
-    <section className="relative overflow-hidden border-y border-gold/20 bg-ink py-28">
-      <div className="absolute inset-0">
+    <section ref={ref} className="relative overflow-hidden border-y border-gold/20 bg-ink py-28">
+      <motion.div className="absolute inset-0" style={reduceMotion ? {} : { scale: bgScale }}>
         <Image
           src={company.images.ctaBackground}
           alt=""
@@ -22,15 +32,16 @@ export default function FinalCTA() {
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/80 to-ink" />
-        <div
+        <motion.div
           aria-hidden="true"
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(60% 60% at 50% 40%, rgba(185,146,74,0.14) 0%, transparent 70%)",
+              "radial-gradient(60% 60% at 50% 40%, rgba(185,146,74,0.16) 0%, transparent 70%)",
+            ...(reduceMotion ? {} : { opacity: glow }),
           }}
         />
-      </div>
+      </motion.div>
 
       <div className="container-oj relative z-10 flex flex-col items-center text-center">
         <motion.div

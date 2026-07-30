@@ -28,19 +28,24 @@ cinematográfico sem fingir trabalhos reais:
 | `svc-mecanica.webp` | Card de Mecânica e seção "Diagnóstico antes da execução" |
 | `svc-funilaria.webp` | Card de Funilaria |
 | `svc-pintura.webp` | Card de Pintura e seção "Recuperar não é apenas esconder o dano" |
-| `illus-funilaria.webp` / `illus-mecanica.webp` | Galeria, com selo "Ilustrativa" — substituir por fotos reais |
+| `illus-pintura.webp` / `illus-funilaria.webp` / `illus-mecanica.webp` / `illus-oficina.webp` | Galeria, com selo "Ilustrativa" — substituir por fotos reais |
 
 Quando houver fotos profissionais reais da oficina, basta trocar os caminhos
 em `src/config/company.ts` (objeto `images`) e em `src/data/services.ts`.
+
+## Fotos removidas a pedido do cliente
+
+As fotos do primeiro envio (processo de pintura, pistola e ferramentas,
+recortadas de uma colagem em baixa resolução) foram **removidas do site e do
+projeto**. Os espaços que elas ocupavam usam agora artes ilustrativas da
+marca, com selo "Ilustrativa" na galeria — prontos para receber fotografias
+profissionais reais no futuro.
 
 ## Fotos reais em uso
 
 | Arquivo | Usado em | Observação |
 |---|---|---|
 | `public/images/facade-real.webp` | Sobre, Localização, Galeria, Open Graph | Recorte do Street View fornecido, sem a interface do Google. A placa na foto mostra um telefone antigo — em tamanho de tela ele não é legível, mas recomenda-se substituir por uma foto atual da fachada assim que possível. |
-| `public/images/painting-real.webp` | Galeria | Foto real do processo de pintura, exibida apenas em tamanho pequeno por ser de baixa resolução. |
-| `public/images/spray-gun-real.webp` | Funilaria e Pintura (detalhe pequeno), Galeria | Idem. |
-| `public/images/tools-real.webp` | Galeria | Idem. |
 
 As artes antigas com o carro amarelo e a placa com telefone 2864-0688 **não**
 foram usadas no site (apenas a logo oficial foi mantida, conforme orientação).
