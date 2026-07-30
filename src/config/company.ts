@@ -158,7 +158,10 @@ export const company = {
   // IMAGENS — ver IMAGENS.md na raiz para instruções de substituição
   // ---------------------------------------------------------------------
   images: {
-    logo: "/images/logo-oficial.webp", // LOGO OFICIAL — não redesenhar
+    logo: "/images/logo-oficial.webp", // LOGO OFICIAL completa (texto + carro), bordas esfumadas
+    // Variante horizontal só com o bloco de texto, para o cabeçalho (legibilidade).
+    // Para usar a arte completa também no cabeçalho, aponte para logo-oficial.webp.
+    logoHeader: "/images/logo-header.webp",
     heroVideo: "", // TODO: opcional, /video/hero.mp4 (ver IMAGENS.md)
     // Artes originais da marca (geradas para o site — não são fotos):
     heroBackground: "/images/hero-bg.webp",

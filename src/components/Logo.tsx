@@ -3,9 +3,11 @@ import { company } from "@/config/company";
 import { cn } from "@/lib/utils";
 
 /**
- * Logo OFICIAL da Oficina do Jayme (imagem fornecida pelo cliente).
- * Não redesenhar, não cortar, não duplicar o nome em texto ao lado.
- * A imagem usa object-fit: contain e é exibida por inteiro.
+ * Logo oficial da Oficina do Jayme (arte fornecida pelo cliente, com bordas
+ * esfumadas para integrar ao fundo escuro do site).
+ * - header: variante horizontal com o bloco de texto (legível em altura pequena)
+ * - footer / large: arte completa com o automóvel
+ * Sempre exibida inteira, com object-fit: contain.
  */
 export default function Logo({
   compact = false,
@@ -14,24 +16,26 @@ export default function Logo({
   compact?: boolean;
   size?: "header" | "footer" | "large";
 }) {
-  const dims =
-    size === "footer"
-      ? "h-28 w-28"
-      : size === "large"
-        ? "h-36 w-36"
-        : compact
-          ? "h-12 w-12"
-          : "h-16 w-16 sm:h-[4.5rem] sm:w-[4.5rem]";
+  const isHeader = size === "header";
+  const src = isHeader ? company.images.logoHeader : company.images.logo;
+
+  const dims = isHeader
+    ? compact
+      ? "h-11 w-[5.2rem]"
+      : "h-14 w-[6.5rem] sm:h-16 sm:w-[7.4rem]"
+    : size === "footer"
+      ? "h-40 w-36"
+      : "h-52 w-44";
 
   return (
     <span className={cn("relative block shrink-0 transition-all duration-300", dims)}>
       <Image
-        src={company.images.logo}
+        src={src}
         alt="Logo da Oficina do Jayme"
         fill
-        sizes="160px"
+        sizes={isHeader ? "120px" : "180px"}
         className="object-contain"
-        priority={size === "header"}
+        priority={isHeader}
       />
     </span>
   );

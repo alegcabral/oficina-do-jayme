@@ -2,13 +2,18 @@
 
 ## Logo oficial
 
-- Arquivo: `public/images/logo-oficial.webp` (e `.png`)
-- É a imagem fornecida pelo cliente, usada no cabeçalho, no rodapé, no CTA
-  final e no manifest. **Não redesenhar.** Exibida sempre inteira, com
-  `object-fit: contain` e alt "Logo da Oficina do Jayme".
-- Para substituir por uma versão em maior resolução: sobrescreva os dois
-  arquivos mantendo os nomes, ou ajuste `images.logo` em
-  `src/config/company.ts`.
+- `public/images/logo-oficial.webp` (e `.png`): a arte nova em alta
+  qualidade fornecida pelo cliente (texto dourado + automóvel), com as
+  **bordas esfumadas em transparência** para se dissolver no fundo escuro do
+  site. Usada no rodapé, no CTA final e no manifest.
+- `public/images/logo-header.webp`: variante horizontal apenas com o bloco
+  de texto ("OFICINA DO JAYME" + assinatura), usada no **cabeçalho** para
+  garantir legibilidade em altura pequena. Nada foi redesenhado — é um
+  recorte da mesma arte, também com bordas esfumadas.
+- Para usar a arte completa também no cabeçalho: em `src/config/company.ts`,
+  troque `images.logoHeader` para `"/images/logo-oficial.webp"`.
+- Para substituir por outra versão: sobrescreva os arquivos mantendo os
+  nomes, ou ajuste os caminhos em `src/config/company.ts`.
 
 ## Artes originais da marca (geradas para o site)
 
