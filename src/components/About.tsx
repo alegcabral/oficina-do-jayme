@@ -19,12 +19,15 @@ export default function About() {
           <div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-white/10">
             <Image
               src={company.images.facade}
-              alt={`Fachada real da ${company.name}, no Jabaquara`}
+              alt="Composição gráfica ilustrativa representando a estrutura da oficina"
               fill
               loading="lazy"
               className="object-cover"
               sizes="(min-width: 1024px) 50vw, 100vw"
             />
+            <span className="absolute bottom-3 left-3 rounded-sm bg-ink/80 px-2.5 py-1 text-[0.65rem] uppercase tracking-wide text-gold">
+              Ilustrativa — foto real em breve
+            </span>
           </div>
           <div className="mt-3 flex items-center gap-2 text-xs uppercase tracking-wide text-mist">
             <MapPin size={14} className="text-gold" aria-hidden="true" />

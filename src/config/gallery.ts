@@ -28,14 +28,6 @@ export const galleryCategories: GalleryCategory[] = [
 
 export const galleryItems: GalleryItem[] = [
   {
-    id: "oficina-fachada",
-    category: "Oficina",
-    title: "Fachada da Oficina do Jayme, no Jabaquara",
-    image: "/images/facade-real.webp",
-    placeholder: false,
-    wide: true,
-  },
-  {
     id: "pintura-illus",
     category: "Pintura",
     title: "Imagem ilustrativa (substituir por foto real de pintura)",

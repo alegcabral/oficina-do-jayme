@@ -158,10 +158,7 @@ export const company = {
   // IMAGENS — ver IMAGENS.md na raiz para instruções de substituição
   // ---------------------------------------------------------------------
   images: {
-    logo: "/images/logo-oficial.webp", // LOGO OFICIAL completa (texto + carro), bordas esfumadas
-    // Variante horizontal só com o bloco de texto, para o cabeçalho (legibilidade).
-    // Para usar a arte completa também no cabeçalho, aponte para logo-oficial.webp.
-    logoHeader: "/images/logo-header.webp",
+    logo: "/images/logo-oficial.webp", // LOGO OFICIAL (emblema), fundo removido e bordas esfumadas
     heroVideo: "", // TODO: opcional, /video/hero.mp4 (ver IMAGENS.md)
     // Artes originais da marca (geradas para o site — não são fotos):
     heroBackground: "/images/hero-bg.webp",
@@ -169,8 +166,9 @@ export const company = {
     artMechanic: "/images/svc-mecanica.webp",
     artBodywork: "/images/svc-funilaria.webp",
     artPaint: "/images/svc-pintura.webp",
-    // Foto real fornecida pelo cliente:
-    facade: "/images/facade-real.webp", // fachada real (Street View recortado)
+    // Sem fotografia real da fachada no momento; usar arte ilustrativa
+    // (ver IMAGENS.md para instruções de substituição por foto real).
+    facade: "/images/illus-oficina.webp",
   },
 };
 

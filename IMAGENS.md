@@ -2,18 +2,35 @@
 
 ## Logo oficial
 
-- `public/images/logo-oficial.webp` (e `.png`): a arte nova em alta
-  qualidade fornecida pelo cliente (texto dourado + automóvel), com as
-  **bordas esfumadas em transparência** para se dissolver no fundo escuro do
-  site. Usada no rodapé, no CTA final e no manifest.
-- `public/images/logo-header.webp`: variante horizontal apenas com o bloco
-  de texto ("OFICINA DO JAYME" + assinatura), usada no **cabeçalho** para
-  garantir legibilidade em altura pequena. Nada foi redesenhado — é um
-  recorte da mesma arte, também com bordas esfumadas.
-- Para usar a arte completa também no cabeçalho: em `src/config/company.ts`,
-  troque `images.logoHeader` para `"/images/logo-oficial.webp"`.
-- Para substituir por outra versão: sobrescreva os arquivos mantendo os
-  nomes, ou ajuste os caminhos em `src/config/company.ts`.
+- `public/images/logo-oficial.webp` (e `.png`): o emblema oficial fornecido
+  pelo cliente (chave inglesa, pistola de pintura, carro estilizado e o
+  texto "Oficina do Jayme"). O fundo branco original foi removido e as
+  bordas receberam uma leve transição para transparência, para o emblema se
+  integrar ao grafite escuro do site em vez de aparecer como um retângulo
+  colado. Nenhum elemento da arte foi redesenhado ou recortado.
+- Usada **sempre inteira**, com `object-fit: contain`, no cabeçalho, no
+  rodapé, no CTA final e no manifest (ícone do site).
+- Para trocar por uma versão em resolução ainda maior: sobrescreva os dois
+  arquivos mantendo os nomes, ou ajuste `images.logo` em
+  `src/config/company.ts`. Se a nova arte tiver outra proporção, atualize
+  também o `aspectRatio` em `src/components/Logo.tsx` (linha com
+  `style={{ aspectRatio: ... }}`).
+
+## Fachada — aguardando foto real
+
+Não há mais nenhuma fotografia (real ou de baixa resolução) da fachada no
+site. Os espaços onde a fachada apareceria (seção "Sobre" e "Localização")
+usam a arte ilustrativa `illus-oficina.webp`, com o selo **"Ilustrativa —
+foto real em breve"** sobre a imagem, deixando claro para o visitante que
+ainda não é uma foto real do local.
+
+Assim que houver uma fotografia profissional da fachada:
+
+1. Salve em `public/images/` (ex.: `facade.webp`).
+2. Em `src/config/company.ts`, troque `images.facade` para o novo caminho.
+3. Remova o selo "Ilustrativa" nos dois componentes: procure por
+   `Ilustrativa — foto real em breve` em `src/components/About.tsx` e
+   `src/components/Location.tsx` e apague o `<span>` correspondente.
 
 ## Artes originais da marca (geradas para o site)
 
@@ -23,39 +40,25 @@ cinematográfico sem fingir trabalhos reais:
 
 | Arquivo | Usado em |
 |---|---|
-| `hero-bg.webp` | Fundo do hero (paralaxe 3D) |
+| `hero-bg.webp` | Fundo do hero (cena de rolagem) |
 | `cta-bg.webp` | Fundo do CTA final |
-| `svc-mecanica.webp` | Card de Mecânica e seção "Diagnóstico antes da execução" |
-| `svc-funilaria.webp` | Card de Funilaria |
-| `svc-pintura.webp` | Card de Pintura e seção "Recuperar não é apenas esconder o dano" |
-| `illus-pintura.webp` / `illus-funilaria.webp` / `illus-mecanica.webp` / `illus-oficina.webp` | Galeria, com selo "Ilustrativa" — substituir por fotos reais |
+| `svc-mecanica.webp` | Painel de Mecânica e seção "Diagnóstico antes da execução" |
+| `svc-funilaria.webp` | Painel de Funilaria |
+| `svc-pintura.webp` | Painel de Pintura e seção "Recuperar não é apenas esconder o dano" |
+| `illus-pintura.webp` / `illus-funilaria.webp` / `illus-mecanica.webp` | Galeria, com selo "Ilustrativa" |
+| `illus-oficina.webp` | Sobre, Localização e Galeria (categoria Oficina), com selo "Ilustrativa" |
 
-Quando houver fotos profissionais reais da oficina, basta trocar os caminhos
-em `src/config/company.ts` (objeto `images`) e em `src/data/services.ts`.
+Quando houver fotos profissionais reais de cada serviço, basta trocar os
+caminhos em `src/data/services.ts` (cards de serviço) e em
+`src/config/gallery.ts` (galeria), marcando `placeholder: false`.
 
-## Fotos removidas a pedido do cliente
-
-As fotos do primeiro envio (processo de pintura, pistola e ferramentas,
-recortadas de uma colagem em baixa resolução) foram **removidas do site e do
-projeto**. Os espaços que elas ocupavam usam agora artes ilustrativas da
-marca, com selo "Ilustrativa" na galeria — prontos para receber fotografias
-profissionais reais no futuro.
-
-## Fotos reais em uso
-
-| Arquivo | Usado em | Observação |
-|---|---|---|
-| `public/images/facade-real.webp` | Sobre, Localização, Galeria, Open Graph | Recorte do Street View fornecido, sem a interface do Google. A placa na foto mostra um telefone antigo — em tamanho de tela ele não é legível, mas recomenda-se substituir por uma foto atual da fachada assim que possível. |
-
-As artes antigas com o carro amarelo e a placa com telefone 2864-0688 **não**
-foram usadas no site (apenas a logo oficial foi mantida, conforme orientação).
-
-## Como substituir qualquer foto
+## Como substituir qualquer imagem
 
 1. Converta a nova foto para `.webp` ou `.avif` (ex.: squoosh.app).
 2. Salve em `public/images/` com o mesmo nome do arquivo atual **ou** com um
-   nome novo, atualizando o caminho em `src/config/company.ts` (objeto
-   `images`) ou em `src/config/gallery.ts`.
+   nome novo, atualizando o caminho correspondente em
+   `src/config/company.ts`, `src/data/services.ts` ou
+   `src/config/gallery.ts`.
 
 ## Vídeo do hero (opcional)
 
@@ -70,8 +73,8 @@ foram usadas no site (apenas a logo oficial foi mantida, conforme orientação).
 Edite `src/config/gallery.ts`: adicione a foto em `public/images/` e crie um
 item com categoria (Mecânica, Funilaria, Pintura ou Oficina) e uma descrição
 NEUTRA (sem inventar modelo, prazo, preço ou resultado). Use `wide: true`
-para a foto ocupar duas colunas. Itens `placeholder: true` mostram o selo
-"Placeholder" até serem substituídos.
+para a foto ocupar duas colunas. Itens com `placeholder: true` mostram o
+selo "Ilustrativa" até serem substituídos por `placeholder: false`.
 
 ## Antes e depois
 
