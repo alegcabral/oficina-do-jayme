@@ -1,4 +1,5 @@
 import { MessageCircle, Instagram, Navigation, Phone } from "lucide-react";
+import Image from "next/image";
 import { company } from "@/config/company";
 import { buildWhatsAppUrl } from "@/lib/utils";
 import Logo from "@/components/Logo";
@@ -99,8 +100,22 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container-oj mt-12 border-t border-white/10 pt-6 text-xs text-mist/60">
-        © {year} {company.name}. Todos os direitos reservados.
+      <div className="container-oj mt-12 flex flex-col items-center gap-3 border-t border-white/10 pt-6 text-xs text-mist/60 sm:flex-row sm:justify-between">
+        <span>
+          © {year} {company.name}. Todos os direitos reservados.
+        </span>
+        <span className="flex items-center gap-1.5 opacity-70">
+          Site desenvolvido por
+          <span className="relative h-4 w-6">
+            <Image
+              src="/images/credit-ac.webp"
+              alt="AC"
+              fill
+              className="object-contain"
+              sizes="24px"
+            />
+          </span>
+        </span>
       </div>
     </footer>
   );
