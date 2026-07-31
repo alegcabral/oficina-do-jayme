@@ -102,7 +102,7 @@ export default function QuoteForm() {
           <h2 className="section-title">Solicite uma avaliação</h2>
           <p className="mt-5 max-w-md text-sm leading-relaxed text-mist">
             Preencha os campos ao lado. Ao enviar, o WhatsApp abre com a sua
-            mensagem já organizada — os dados preenchidos são preservados.
+            mensagem já organizada. Os dados preenchidos são preservados.
           </p>
           <p className="mt-5 flex items-start gap-2 text-xs leading-relaxed text-mist/80">
             <ImageIcon size={16} className="mt-0.5 shrink-0 text-gold" aria-hidden="true" />

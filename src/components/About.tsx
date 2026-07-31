@@ -28,7 +28,7 @@ export default function About() {
           </div>
           <div className="mt-3 flex items-center gap-2 text-xs uppercase tracking-wide text-mist">
             <MapPin size={14} className="text-gold" aria-hidden="true" />
-            {company.address.street} — {company.address.neighborhood}
+            {company.address.street}, {company.address.neighborhood}
           </div>
         </motion.div>
 

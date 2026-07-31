@@ -33,7 +33,7 @@ export default function PrivacyPage() {
                 modelo do veículo, ano, serviço desejado e uma descrição do
                 problema relatado. A indicação de que você possui fotos do
                 veículo também é registrada, mas nenhuma foto é enviada
-                automaticamente por este formulário — elas devem ser anexadas
+                automaticamente por este formulário. Elas devem ser anexadas
                 diretamente na conversa do WhatsApp.
               </p>
             </section>

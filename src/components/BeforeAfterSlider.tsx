@@ -78,12 +78,12 @@ function ComparisonCard({
           dragging.current = false;
         }}
       >
-        <Image src={after} alt={`${label} — depois`} fill className="object-cover" sizes="(min-width:1024px) 50vw, 100vw" />
+        <Image src={after} alt={`${label} (depois)`} fill className="object-cover" sizes="(min-width:1024px) 50vw, 100vw" />
         <div
           className="absolute inset-0 overflow-hidden"
           style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
         >
-          <Image src={before} alt={`${label} — antes`} fill className="object-cover" sizes="(min-width:1024px) 50vw, 100vw" />
+          <Image src={before} alt={`${label} (antes)`} fill className="object-cover" sizes="(min-width:1024px) 50vw, 100vw" />
         </div>
 
         <span className="absolute left-3 top-3 rounded-sm bg-ink/80 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-paper">

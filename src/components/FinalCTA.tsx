@@ -114,7 +114,7 @@ export default function FinalCTA() {
           </span>
           <span className="flex items-center gap-2">
             <MapPin size={15} className="text-gold" aria-hidden="true" />
-            {company.address.street} — {company.address.neighborhood}
+            {company.address.street}, {company.address.neighborhood}
           </span>
           <span className="flex items-center gap-2">
             <Clock size={15} className="text-gold" aria-hidden="true" />

@@ -43,7 +43,7 @@ export default function Header() {
       <div className="container-oj flex items-center justify-between">
         <a
           href="#inicio"
-          aria-label={`${company.name} — voltar ao início`}
+          aria-label={`${company.name}: voltar ao início`}
           className="flex items-center"
         >
           <Logo compact={scrolled} />

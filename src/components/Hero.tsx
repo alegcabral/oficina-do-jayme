@@ -54,8 +54,8 @@ export default function Hero() {
       <div
         className={
           reduceMotion
-            ? "relative flex min-h-[100svh] items-center overflow-hidden"
-            : "sticky top-0 flex h-screen items-center overflow-hidden"
+            ? "relative flex min-h-[100svh] items-center overflow-hidden pt-32 sm:pt-24"
+            : "sticky top-0 flex h-screen items-center overflow-hidden pt-32 sm:pt-24"
         }
         style={{ perspective: 1200 }}
       >
@@ -177,7 +177,7 @@ export default function Hero() {
           >
             <span className="flex items-center gap-2">
               <MapPin size={16} className="text-gold" aria-hidden="true" />
-              Jabaquara — São Paulo
+              Jabaquara, São Paulo
             </span>
             <span className="flex items-center gap-2">
               <Clock size={16} className="text-gold" aria-hidden="true" />
