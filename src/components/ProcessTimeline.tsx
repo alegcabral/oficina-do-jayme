@@ -69,7 +69,7 @@ export default function ProcessTimeline() {
 
           <ol className="flex flex-col gap-12">
             {steps.map((step, i) => {
-              const even = i % 2 === 0;
+              const leftSide = i % 2 === 0;
               return (
                 <motion.li
                   key={step.title}
@@ -77,21 +77,36 @@ export default function ProcessTimeline() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.5, delay: 0.05 }}
-                  className={`relative flex items-start gap-6 pl-14 sm:w-1/2 sm:pl-0 ${
-                    even
-                      ? "sm:mr-auto sm:flex-row-reverse sm:pr-14 sm:text-right"
-                      : "sm:ml-auto sm:pl-14"
-                  }`}
+                  className="relative sm:w-1/2 sm:min-h-[3rem]"
+                  style={
+                    leftSide
+                      ? { marginRight: "auto" }
+                      : { marginLeft: "auto" }
+                  }
                 >
+                  {/* Número: no mobile fica à esquerda; no desktop, sobre a
+                      linha central (à direita do bloco esquerdo, à esquerda
+                      do bloco direito). Sem classes conflitantes de left/right. */}
                   <span
-                    className={`absolute left-0 flex h-11 w-11 items-center justify-center rounded-full border border-gold bg-ink font-display text-lg text-gold sm:left-auto ${
-                      even ? "sm:-right-[1.4rem]" : "sm:-left-[1.4rem]"
-                    }`}
                     aria-hidden="true"
+                    className={
+                      "absolute top-0 flex h-11 w-11 items-center justify-center rounded-full border border-gold bg-ink font-display text-lg text-gold " +
+                      (leftSide
+                        ? "left-0 sm:left-auto sm:-right-[1.375rem]"
+                        : "left-0 sm:-left-[1.375rem]")
+                    }
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <div>
+
+                  <div
+                    className={
+                      "pl-16 " +
+                      (leftSide
+                        ? "sm:pl-0 sm:pr-16 sm:text-right"
+                        : "sm:pl-16")
+                    }
+                  >
                     <h3 className="font-display text-xl tracking-wide text-paper">
                       {step.title}
                     </h3>

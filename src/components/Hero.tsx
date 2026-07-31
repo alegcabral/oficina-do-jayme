@@ -115,15 +115,6 @@ export default function Hero() {
                 }
           }
         >
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="eyebrow mb-5"
-          >
-            Oficina automotiva no Jabaquara
-          </motion.p>
-
           <h1 className="max-w-4xl font-display text-[clamp(2.4rem,7.5vw,5.2rem)] font-bold leading-[1.02] text-paper">
             <span className="block overflow-hidden">
               <motion.span className="block" {...lineReveal(0.25)}>
