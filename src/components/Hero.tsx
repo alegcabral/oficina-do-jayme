@@ -116,17 +116,32 @@ export default function Hero() {
                 strokeWidth="1.4"
               />
               <path d="M 330 78 L 330 108" stroke="rgba(212,179,116,0.4)" strokeWidth="1.2" />
-              {/* Rodas com raios girando */}
-              <motion.g style={{ rotate: wheelRotate, originX: "0.5", originY: "0.5" }}>
-                <circle cx="150" cy="148" r="32" stroke="rgba(212,179,116,0.9)" strokeWidth="2" />
-                <circle cx="150" cy="148" r="14" stroke="rgba(212,179,116,0.6)" strokeWidth="1.4" />
-                <path d="M 150 134 L 150 118 M 150 162 L 150 178 M 136 148 L 120 148 M 164 148 L 180 148" stroke="rgba(212,179,116,0.55)" strokeWidth="1.4" />
-              </motion.g>
-              <motion.g style={{ rotate: wheelRotate, originX: "0.5", originY: "0.5" }}>
-                <circle cx="480" cy="148" r="32" stroke="rgba(212,179,116,0.9)" strokeWidth="2" />
-                <circle cx="480" cy="148" r="14" stroke="rgba(212,179,116,0.6)" strokeWidth="1.4" />
-                <path d="M 480 134 L 480 118 M 480 162 L 480 178 M 466 148 L 450 148 M 494 148 L 510 148" stroke="rgba(212,179,116,0.55)" strokeWidth="1.4" />
-              </motion.g>
+              {/* Rodas fixas na carroceria; apenas os raios giram, ancorados
+                  no centro exato de cada roda (transform-box: fill-box). */}
+              <circle cx="150" cy="148" r="32" stroke="rgba(212,179,116,0.9)" strokeWidth="2" />
+              <circle cx="150" cy="148" r="14" stroke="rgba(212,179,116,0.6)" strokeWidth="1.4" />
+              <motion.path
+                d="M 150 134 L 150 120 M 150 162 L 150 176 M 136 148 L 122 148 M 164 148 L 178 148"
+                stroke="rgba(212,179,116,0.55)"
+                strokeWidth="1.4"
+                style={{
+                  rotate: wheelRotate,
+                  transformBox: "fill-box",
+                  transformOrigin: "center",
+                }}
+              />
+              <circle cx="480" cy="148" r="32" stroke="rgba(212,179,116,0.9)" strokeWidth="2" />
+              <circle cx="480" cy="148" r="14" stroke="rgba(212,179,116,0.6)" strokeWidth="1.4" />
+              <motion.path
+                d="M 480 134 L 480 120 M 480 162 L 480 176 M 466 148 L 452 148 M 494 148 L 508 148"
+                stroke="rgba(212,179,116,0.55)"
+                strokeWidth="1.4"
+                style={{
+                  rotate: wheelRotate,
+                  transformBox: "fill-box",
+                  transformOrigin: "center",
+                }}
+              />
               {/* Farol e lanterna */}
               <path d="M 20 140 L 34 136" stroke="rgba(212,179,116,0.8)" strokeWidth="2" />
               <path d="M 618 140 L 604 136" stroke="rgba(212,179,116,0.8)" strokeWidth="2" />
