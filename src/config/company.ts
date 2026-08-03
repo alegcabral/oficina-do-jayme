@@ -158,7 +158,7 @@ export const company = {
   // IMAGENS — ver IMAGENS.md na raiz para instruções de substituição
   // ---------------------------------------------------------------------
   images: {
-    logo: "/images/logo-oficial.webp", // LOGO OFICIAL (emblema), fundo removido e bordas esfumadas
+    logo: "/images/logo-oficial.webp", // LOGO OFICIAL (escudo), fundo removido sem halo
     heroVideo: "", // TODO: opcional, /video/hero.mp4 (ver IMAGENS.md)
     // Artes originais da marca (geradas para o site — não são fotos):
     heroBackground: "/images/hero-bg.webp",

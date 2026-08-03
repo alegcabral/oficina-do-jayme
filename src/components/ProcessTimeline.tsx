@@ -1,9 +1,10 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useSpring, useReducedMotion } from "framer-motion";
+import { motion, useScroll, useSpring, useReducedMotion, useTransform } from "framer-motion";
 
-/** Processo de atendimento em 6 etapas, com linha de progresso na rolagem. */
+/** Processo de atendimento em 6 etapas, com linha de progresso na rolagem
+ * e um pequeno carro que desce pela linha marcando o avanço. */
 
 const steps = [
   {
@@ -67,6 +68,9 @@ export default function ProcessTimeline() {
             style={{ scaleY: reduceMotion ? 1 : progress }}
           />
 
+          {/* Pequeno carro descendo pela linha conforme o progresso */}
+          {!reduceMotion && <TimelineCar progress={progress} />}
+
           <ol className="flex flex-col gap-12">
             {steps.map((step, i) => {
               const leftSide = i % 2 === 0;
@@ -124,5 +128,69 @@ export default function ProcessTimeline() {
         </p>
       </div>
     </section>
+  );
+}
+
+/**
+ * Carro pequeno que percorre a linha vertical do processo, do topo (1rem)
+ * até a base (1rem antes do fim), seguindo o mesmo valor de progresso da
+ * rolagem que preenche a linha dourada. Alinhado ao mesmo eixo da linha
+ * (left-[1.4rem] no celular, centro no desktop).
+ */
+function TimelineCar({ progress }: { progress: import("framer-motion").MotionValue<number> }) {
+  // 1rem a calc(100% - 1rem), na MESMA base de altura da linha (top-4/bottom-4).
+  const top = useTransform(progress, [0, 1], ["1rem", "calc(100% - 1rem)"]);
+  const wheelRotate = useTransform(progress, [0, 1], [0, 620]);
+
+  return (
+    // "inset-y-0" dá altura real (100% do contêiner da timeline) a este
+    // elemento-âncora — sem isso, o "top" em porcentagem do carro era
+    // calculado contra uma altura zero e ele não percorria a linha inteira.
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-y-0 left-[1.4rem] z-10 sm:left-1/2"
+    >
+      <motion.div
+        className="absolute left-0"
+        style={{ top, x: "-50%", y: "-50%" }}
+      >
+        <svg
+          viewBox="0 0 64 28"
+          className="h-6 w-14 drop-shadow-[0_0_6px_rgba(212,179,116,0.5)]"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M 3 20 C 5 13, 12 11, 18 11 C 21 7, 27 5, 36 5 C 44 5, 50 8, 54 12 C 58 13, 61 15, 61 20"
+            stroke="#d4b374"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <path d="M 3 20 L 12 20" stroke="#d4b374" strokeWidth="2" strokeLinecap="round" />
+          <path d="M 24 20 L 40 20" stroke="#d4b374" strokeWidth="2" strokeLinecap="round" />
+          <path d="M 52 20 L 61 20" stroke="#d4b374" strokeWidth="2" strokeLinecap="round" />
+          <path
+            d="M 22 11 C 27 8, 33 8, 37 11"
+            stroke="#d4b374"
+            strokeOpacity="0.6"
+            strokeWidth="1.3"
+          />
+          <circle cx="18" cy="20" r="5.5" fill="#0a0a0b" stroke="#d4b374" strokeWidth="2" />
+          <circle cx="46" cy="20" r="5.5" fill="#0a0a0b" stroke="#d4b374" strokeWidth="2" />
+          <motion.path
+            d="M 18 15.5 L 18 24.5 M 13.5 20 L 22.5 20"
+            stroke="#d4b374"
+            strokeWidth="1.2"
+            style={{ rotate: wheelRotate, transformBox: "fill-box", transformOrigin: "center" }}
+          />
+          <motion.path
+            d="M 46 15.5 L 46 24.5 M 41.5 20 L 50.5 20"
+            stroke="#d4b374"
+            strokeWidth="1.2"
+            style={{ rotate: wheelRotate, transformBox: "fill-box", transformOrigin: "center" }}
+          />
+        </svg>
+      </motion.div>
+    </div>
   );
 }

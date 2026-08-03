@@ -2,12 +2,14 @@
 
 ## Logo oficial
 
-- `public/images/logo-oficial.webp` (e `.png`): o emblema oficial fornecido
-  pelo cliente (chave inglesa, pistola de pintura, carro estilizado e o
-  texto "Oficina do Jayme"). O fundo branco original foi removido e as
-  bordas receberam uma leve transição para transparência, para o emblema se
-  integrar ao grafite escuro do site em vez de aparecer como um retângulo
-  colado. Nenhum elemento da arte foi redesenhado ou recortado.
+- `public/images/logo-oficial.webp` (e `.png`): o emblema em formato de
+  escudo fornecido pelo cliente (chave inglesa, pistola de pintura, carro
+  estilizado, louros e o texto "Oficina do Jayme — Mecânica, Funilaria e
+  Pintura de alto padrão"). O fundo (branco/quadriculado) foi removido com
+  descontaminação de cor nas bordas (para não sobrar halo claro ao integrar
+  ao grafite escuro do site). Nenhum elemento da arte foi redesenhado ou
+  recortado.
+- Proporção aproximadamente quadrada (955×975 px).
 - Usada **sempre inteira**, com `object-fit: contain`, no cabeçalho, no
   rodapé, no CTA final e no manifest (ícone do site).
 - Para trocar por uma versão em resolução ainda maior: sobrescreva os dois

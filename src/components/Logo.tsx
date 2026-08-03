@@ -3,10 +3,11 @@ import { company } from "@/config/company";
 import { cn } from "@/lib/utils";
 
 /**
- * Logo oficial da Oficina do Jayme (emblema fornecido pelo cliente, com o
- * fundo original removido e as bordas esfumadas para integrar ao grafite
- * escuro do site). Exibida sempre inteira, com object-fit: contain.
- * A arte é um emblema largo (~2.1:1) — a altura é fixada por tamanho e a
+ * Logo oficial da Oficina do Jayme (emblema em formato de escudo fornecido
+ * pelo cliente, com o fundo original removido — incluindo descontaminação
+ * de cor para não deixar halo claro — e integrado ao grafite escuro do
+ * site). Exibida sempre inteira, com object-fit: contain.
+ * A arte é quase quadrada (~0.98:1) — a altura é fixada por tamanho e a
  * largura acompanha via aspect-ratio, sem distorcer nem cortar.
  */
 export default function Logo({
@@ -31,7 +32,7 @@ export default function Logo({
         "relative block w-auto shrink-0 transition-all duration-300",
         heightClass
       )}
-      style={{ aspectRatio: "1082 / 516" }}
+      style={{ aspectRatio: "955 / 975" }}
     >
       <Image
         src={company.images.logo}
