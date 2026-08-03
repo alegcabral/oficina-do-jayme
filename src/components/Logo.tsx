@@ -20,11 +20,11 @@ export default function Logo({
   const heightClass =
     size === "header"
       ? compact
-        ? "h-10 sm:h-11"
-        : "h-12 sm:h-14"
+        ? "h-12 sm:h-14"
+        : "h-16 sm:h-20"
       : size === "footer"
-        ? "h-20 sm:h-24"
-        : "h-28 sm:h-32";
+        ? "h-24 sm:h-28"
+        : "h-32 sm:h-40";
 
   return (
     <span

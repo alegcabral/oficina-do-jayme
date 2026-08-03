@@ -55,8 +55,8 @@ export default function Hero() {
       <div
         className={
           reduceMotion
-            ? "relative flex min-h-[100svh] items-center overflow-hidden pt-32 sm:pt-24"
-            : "sticky top-0 flex h-screen items-center overflow-hidden pt-32 sm:pt-24"
+            ? "relative flex min-h-[100svh] items-center overflow-hidden pt-32 sm:pt-32"
+            : "sticky top-0 flex h-screen items-center overflow-hidden pt-32 sm:pt-32"
         }
         style={{ perspective: 1200 }}
       >
